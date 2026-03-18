@@ -5,9 +5,16 @@ public class Circle extends Shape implements Measurable {
     private final double radius;
 
     Circle(String name, double radius) {
-        super(name);
+        super(name); // Nice work!
+
+        if (radius <= 0) {
+            throw new IllegalArgumentException("A Circle's radius cannot be negative.");
+        }
+
         this.radius = radius;
     }
+
+    // Your formulae are spot-on!
 
     @Override
     public double area() {
@@ -15,12 +22,9 @@ public class Circle extends Shape implements Measurable {
     }
 
     @Override
-    double perimeter() {
+    public double perimeter() {
         return 2 * Math.PI * radius;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
-    }
+    // Overriding Shape.equals() is not needed.
 }
